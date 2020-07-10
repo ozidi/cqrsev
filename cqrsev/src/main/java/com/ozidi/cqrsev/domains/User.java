@@ -30,6 +30,10 @@ public class User {
 	@OneToMany
 	private Set<Address> addresses;
 
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public User(Long userId, String firstName, String lastName) {
 		this.userId = userId;
 		this.firstName = firstName;
