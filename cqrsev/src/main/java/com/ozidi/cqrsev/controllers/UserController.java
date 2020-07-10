@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,11 +18,8 @@ import com.ozidi.cqrsev.repository.UserRepository;
 @Controller
 public class UserController {
 
-	private UserRepository userRepository;
-
-	public UserController(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+	@Autowired
+	UserRepository userRepository;
 
 	@GetMapping("/signup")
 	public String showSignUpForm(User user) {
