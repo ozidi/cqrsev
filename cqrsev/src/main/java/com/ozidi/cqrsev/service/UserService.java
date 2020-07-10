@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ozidi.cqrsev.domains.Address;
@@ -14,11 +15,8 @@ import com.ozidi.cqrsev.repository.UserRepository;
 @Service
 public class UserService {
 
-	private UserRepository userRepository;
-
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+	@Autowired
+	UserRepository userRepository;
 
 	public void createUser(Long userId, String firstName, String lastName) {
 		User user = new User(userId, firstName, lastName);

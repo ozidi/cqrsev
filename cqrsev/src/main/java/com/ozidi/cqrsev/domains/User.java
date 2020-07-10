@@ -2,10 +2,12 @@ package com.ozidi.cqrsev.domains;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -13,9 +15,19 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
+
+	@Column
 	private String firstName;
+
+	@Column
 	private String lastName;
+
+	@Column
+	@OneToMany
 	private Set<Contact> contacts;
+
+	@Column
+	@OneToMany
 	private Set<Address> addresses;
 
 	public User(Long userId, String firstName, String lastName) {
